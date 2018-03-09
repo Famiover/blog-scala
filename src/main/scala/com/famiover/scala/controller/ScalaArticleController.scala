@@ -13,26 +13,15 @@ import org.springframework.web.bind.annotation._
 class ScalaArticleController(@Autowired private val scalaArticleService: ScalaArticleService) {
 
   /**
-    * 根据用户名查询用户
+    * 根据文章ID查询文章
     *
-    * @param id 用户ID
+    * @param id 文章ID
     */
   @RequestMapping(path = Array("/{id}"), method = Array(GET))
   def selectById(@PathVariable("id") id: java.lang.Long): Result[Article] = {
     val article = scalaArticleService.selectById(id)
     Result.success(article)
-  }
 
-  /**
-    * 添加用户
-    *
-    * @param id 用户
-    */
-  @RequestMapping(path = Array("/{id}"), method = Array(DELETE))
-  def selectUserById(@PathVariable("id") id: java.lang.Long): Result[User] = {
-    scalaArticleService.deleteById(id)
-    Result.success()
-  }
 
 
 }

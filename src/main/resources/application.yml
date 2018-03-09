@@ -1,0 +1,28 @@
+server:
+  context-path: /blog-scala
+  port: 7777
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/blog0?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: lcm
+      type: com.alibaba.druid.pool.DruidDataSource
+      driverClassName: com.mysql.jdbc.Driver
+      maxActive: 20
+      initialSize: 5
+      maxWait: 28800
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: true
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      maxPoolPreparedStatementPerConnectionSize: 20
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;config.decrypt=false
+      useGlobalDataSourceStat: false
+
